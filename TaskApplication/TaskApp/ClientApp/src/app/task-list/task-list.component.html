@@ -1,0 +1,35 @@
+
+<h1><img src="../../assets/images/task-logo.png" width="70">&nbsp; Task List </h1> 
+
+
+ 
+<br />
+<a href="task-details">Create a new Task</a>
+<br />
+<br />
+<p *ngIf="!taskList && !requestSent"><em>Loading...</em></p>
+<p *ngIf="taskList.length==0 && requestSent"><em>No Data Found</em></p>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="taskList.length>0">
+  <thead>
+    <tr>
+      <th>Task Title</th>
+      <th>Details</th>
+      <th>Assigned Name</th>
+      <th>Date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of taskList">
+
+      <td>{{ task.title }}</td>
+      <td>{{ task.details }}</td>
+      <td>{{ task.assigned_name }}</td>
+      <td>{{ task.date }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="openDetails(task.id)">Edit</button>&nbsp;
+        <button class="btn btn-danger" (click)="deleteTask(task.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

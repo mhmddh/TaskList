@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div>
+        <label>Title</label>
+        <input type="text" class="form-control" [(ngModel)]="task.title" placeholder="Task Title" />
+
+      </div>
+      <br />
+      <div>
+        <label>Details</label>
+        <input type="text" class="form-control" [(ngModel)]="task.details" placeholder="Task Details" />
+
+      </div>
+      <br />
+      <div>
+        <label>Assigned Name</label>
+        <input type="text" class="form-control" [(ngModel)]="task.assigned_name" placeholder="Assinged Name" />
+      </div>
+      <br />
+
+      <div>
+        <label>Date</label>
+        <input type="date" class="form-control" [ngModel]="task.date | date:'yyyy-MM-dd'" (ngModelChange)="task.date = $event" />
+
+
+      </div>
+      <br />
+      <button class="btn btn-success" (click)="saveTask()">Save</button>&nbsp;
+      <button class="btn btn-danger" (click)="goBackToList()">Cancel</button>
+
+    </div>
+  </div>
+</div>
